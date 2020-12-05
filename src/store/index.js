@@ -83,6 +83,11 @@ export default createStore({
   },
   actions: {
   },
+  getters: {
+    product: (state) => (id) => {
+      return state.products.filter(p => p.id === Number(id))[0]
+    }
+  },
   modules: {
   }
 })
