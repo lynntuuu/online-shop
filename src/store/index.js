@@ -86,6 +86,13 @@ export default createStore({
   getters: {
     product: (state) => (id) => {
       return state.products.filter(p => p.id === Number(id))[0]
+    },
+    cartItems: (state) => {
+      return state.cart.map(
+        itemId => state.products.find(
+          product => product.id === itemId
+        )
+      )
     }
   },
   modules: {
