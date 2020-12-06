@@ -3,7 +3,7 @@
     <h1>My Cart</h1>
     <ul>
       <li v-for="item in cartItems" :key="item.id">
-        {{item.name}}
+        <p>{{ item.name }}</p>
       </li>
     </ul>
   </div>
