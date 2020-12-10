@@ -84,6 +84,14 @@ export default createStore({
     addToCart (state, payload) {
       state.cart.push(Number(payload))
     },
+    removeFromCart (state, payload) {
+      const indexToDelete = state.cart.indexOf(Number(payload))
+      state.cart.splice(indexToDelete, 1)
+    },
+    incrementProductInventory (state, payload) {
+      const product = state.products.find(product => product.id === Number(payload))
+      product.quantity++
+    },
     decrementProductInventory (state, payload) {
       const product = state.products.find(product => product.id === Number(payload))
       product.quantity--
@@ -93,6 +101,10 @@ export default createStore({
     addToCart ({ commit }, payload) {
       commit('addToCart', payload)
       commit('decrementProductInventory', payload)
+    },
+    removeFromCart ({ commit }, payload) {
+      commit('removeFromCart', payload)
+      commit('incrementProductInventory', payload)
     }
   },
   getters: {
