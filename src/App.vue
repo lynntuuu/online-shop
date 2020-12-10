@@ -3,11 +3,28 @@
     <h1 class="flex-col--2">MyStore</h1>
     <div class="flex-col--2 flex-justify-right flex">
       <router-link to="/">Home</router-link> |
-      <router-link to="/cart">Cart</router-link>
+      <router-link to="/cart" class="nav-items__item">Cart
+        <counter-badge :count="cartCount"></counter-badge>
+      </router-link>
     </div>
   </div>
   <router-view/>
 </template>
+
+<script>
+import CounterBadge from '@/components/CounterBadge'
+
+export default {
+  name: 'app',
+  components: { CounterBadge },
+  computed: {
+    cartCount () {
+      // return the number of id’s in the “cart” by evaluating the array’s length
+      return this.$store.state.cart.length
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -28,5 +45,9 @@
       color: #42b983;
     }
   }
+}
+.nav-items__item {
+  margin-left: 1rem;
+  position: relative;
 }
 </style>
