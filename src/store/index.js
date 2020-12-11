@@ -610,6 +610,9 @@ export default createStore({
           product => product.id === itemId
         )
       )
+    },
+    featuredProducts: (state) => {
+      return state.products.filter(p => p.featured)
     }
   },
   modules: {

@@ -3,7 +3,7 @@
     <section class="wrapper">
       <h2>Featured Items</h2>
       <ul class="featured-items">
-        <li v-for="product in products" :key="product.id" class="featured-items_item">
+        <li v-for="product in featuredProducts" :key="product.id" class="featured-items-item">
           <router-link :to="{ name: 'product', params: { id: product.id }}">
             <img class="product-image" :src="makeImagePath(product)" alt="">
             <p class="product-title">{{product.name}}</p>
@@ -25,6 +25,9 @@ export default {
   computed: {
     products () {
       return this.$store.state.products
+    },
+    featuredProducts () {
+      return this.$store.getters.featuredProducts.slice(0, 3)
     }
   }
 }
@@ -49,7 +52,7 @@ export default {
     flex-direction: column;
   }
 }
-.featured-items_item {
+.featured-items-item {
   width: 33%;
   text-align: center;
   @media only screen and (max-width: 832px) {
