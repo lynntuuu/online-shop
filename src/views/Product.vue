@@ -49,11 +49,12 @@ export default {
   display: flex;
   align-items: flex-start;
 }
-
 .flex-col--2 {
   width: 50%;
 }
-
+.flex-col--align-center {
+  align-items: center;
+}
 .btn {
   padding: .5rem .75rem;;
   border-radius: 2px;

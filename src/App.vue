@@ -1,9 +1,9 @@
 <template>
   <div id="nav" class="wrapper flex-col flex-col--align-center">
     <h1 class="flex-col--2">MyStore</h1>
-    <div class="flex-col--2 flex-justify-right flex">
+    <div class="flex-col--2 nav-items">
       <router-link to="/">Home</router-link> |
-      <router-link to="/cart" class="nav-items__item">Cart
+      <router-link to="/cart" class="nav-items-item">Cart
         <counter-badge :count="cartCount"></counter-badge>
       </router-link>
     </div>
@@ -46,8 +46,16 @@ export default {
     }
   }
 }
-.nav-items__item {
+.nav-items {
+  justify-content: flex-end;
+  display: flex;
+}
+.nav-items-item {
   margin-left: 1rem;
   position: relative;
+}
+ul {
+  padding-left: 0;
+  list-style: none;
 }
 </style>
