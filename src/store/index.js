@@ -613,6 +613,12 @@ export default createStore({
     },
     featuredProducts: (state) => {
       return state.products.filter(p => p.featured)
+    },
+    productsByGender: (state) => (gender) => {
+      return state.products.filter(p => p.gender === gender)
+    },
+    productsByCategory: (state) => (category) => {
+      return state.products.filter(p => p.category === category)
     }
   },
   modules: {
