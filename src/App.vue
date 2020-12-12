@@ -5,6 +5,8 @@
       <router-link to="/" class="nav-items-item">Home</router-link>
       <router-link :to="{ name : 'gender-overview', params : { gender: 'women' }}"
       class="nav-items-item">Women</router-link>
+      <router-link :to="{ name : 'gender-overview', params : { gender: 'men' }}"
+      class="nav-items-item">Men</router-link>
       <router-link to="/cart" class="nav-items-item">Cart
         <counter-badge :count="cartCount"></counter-badge>
       </router-link>
