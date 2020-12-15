@@ -19,6 +19,11 @@ import { imagePath } from '@/mixins/imagePath.js'
 export default {
   name: 'genderOverview',
   mixins: [imagePath],
+  created () {
+    this.randomTopId = this.randomProductIdByCategory('Shirts')
+    this.randomBottomId = this.randomProductIdByCategory('Pants')
+    this.randomFootwearId = this.randomProductIdByCategory('Shoes')
+  },
   data () {
     return {
       randomTopId: null,
@@ -35,11 +40,20 @@ export default {
     },
     productsByGender () {
       return this.$store.getters.productsByGender(this.gender)
+    },
+    randomTop () {
+      return this.$store.getters.product(this.randomTopId)
+    },
+    randomBottom () {
+      return this.$store.getters.product(this.randomBottomId)
+    },
+    randomFootwear () {
+      return this.$store.getters.product(this.randomFootwearId)
     }
   },
   methods: {
     // retrieving a random product within a certain category
-    randomProductsById (category) {
+    randomProductIdByCategory (category) {
       const allProductsInCategory = this.productsByGender.filter(p => p.category === category)
       const randomIndex = Math.floor(Math.random() * allProductsInCategory.length)
       return allProductsInCategory[randomIndex].id
