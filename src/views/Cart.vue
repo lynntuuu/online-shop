@@ -15,7 +15,7 @@
           <p>${{ item.price }}</p>
           <button
             @click="removeFromCart(item.id)"
-            class="btn cart-list__btn-remove">
+            class="btn cart-list-btn-remove">
             Remove
           </button>
         </li>
